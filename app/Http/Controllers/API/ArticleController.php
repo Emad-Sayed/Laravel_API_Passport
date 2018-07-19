@@ -33,8 +33,7 @@ class ArticleController extends Controller
             'content'=>'regex:/^[A-Za-z]{2,20}/ |required'
         ]);
         $article=new Article();
-        $article->title=$request->input('title');
-        $article->content=$request->input('content');
+        $article->fill($request->all());
         $article->save();
         return response()->json(['success' => $article], $this-> successStatus);
     }
@@ -45,8 +44,7 @@ class ArticleController extends Controller
             'title'=> 'regex:/^[A-Za-z]{2,8}/ |required',
             'content'=>'regex:/^[A-Za-z]{2,20}/ |required'
         ]);
-        $article->title=$request->input('title');
-        $article->content=$request->input('content');
+        $article->fill($request->all());
         $article->save();
         return response()->json(['success' => $article], $this-> successStatus);
     }

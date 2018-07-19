@@ -11,4 +11,7 @@ class Article extends Authenticatable
 
     protected $table='article';
     public $timestamps=false;
+    protected $fillable = [
+        'title', 'content'
+    ];
 }
